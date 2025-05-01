@@ -20,7 +20,7 @@ Then sign a token (with the corresponding key) and run with it:
 ```sh
 keypairs sign --exp 1h ./key.ec.jwk.json \
     '{
-        "issuer": "https://sso-dev.therootcompany.com"
+        "iss": "https://sso-dev.therootcompany.com"
         "sub": "me@example.com"
     }' \
     > token.jwt \
