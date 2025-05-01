@@ -18,11 +18,21 @@ Add any of these issuers to your web app's OpenID issuer whitelist:
 Then sign a token (with the corresponding key) and run with it:
 
 ```sh
+b_auth_time="$(date '+%s')"
+b_standard_claims='{
+    "amr": ["pwd"],
+    "aud": "https://beta.therootcompany.com",
+    "auth_time": '"${b_auth_time}"',
+    "email": "me@example.com",
+    "email_verified": false,
+    "iss": "https://sso-dev.therootcompany.com",
+    "locale": "en-US",
+    "sub": "xxxxxxxxxxxx",
+    "zoneinfo": "America/Denver"
+}'
+
 keypairs sign --exp 1h ./key.ec.jwk.json \
-    '{
-        "iss": "https://sso-dev.therootcompany.com"
-        "sub": "me@example.com"
-    }' \
+    "${b_standard_claims}" \
     > token.jwt \
     2> sig.jws
 
