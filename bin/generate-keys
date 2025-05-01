@@ -56,6 +56,7 @@ fn_conf() { (
         echo '  "issuer": "'"${my_url}"'/",'
         echo '  "jwks_uri": "'"${my_url}"'/.well-known/jwks.json",'
         echo '  "id_token_signing_alg_values_supported": ['
+        echo '    "ES256"',
         echo '    "RS256"'
         echo '  ]'
         echo '}'
